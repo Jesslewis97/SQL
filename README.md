@@ -1,20 +1,32 @@
 # SQL
 SQL Portfolio
 
-CREATE TABLE store (id INTEGER PRIMARY KEY,item TEXT, quantity INTEGER, aisle INTEGER, price INTEGER);
+CREATE TABLE store (id INTEGER PRIMARY KEY,item TEXT, quantity INTEGER, popularity INTEGER, price INTEGER);
 
-INSERT INTO store VALUES (1,"Shirts", 2, 1,15);
-INSERT INTO store VALUES (2,"Pants",3,1,20);
-INSERT INTO store VALUES (3, "Shoes",2,2,30);
-INSERT INTO store VALUES (4,"Makeup", 4,3,25);
-INSERT INTO store VALUES (5,"Perfume", 5,3,20);
+INSERT INTO store VALUES (1,"Graphic shirts", 95,50,15.00);
+INSERT INTO store VALUES (2,"Crop tops",100,67,20.00);
+INSERT INTO store VALUES (3, "Sheer tops",75,49,30.00);
+INSERT INTO store VALUES (4,"Jean shorts",70,75,45.00);
+INSERT INTO store VALUES (5,"Jeans",50,87,75.00);
+INSERT INTO store VALUES (6,"Bathing suit tops",80,100,38.00);
+INSERT INTO store VALUES (7,"Bathing suit bottoms",85,98,38.00);
+INSERT INTO store VALUES (8,"Bathing suit coverups ",40,50,30.00);
+INSERT INTO store VALUES (9,"Sandles",58,62,35.00);
+INSERT INTO store VALUES (10,"Sneakers",29,39,55.00);
+INSERT INTO store VALUES (11,"Underwear",300,95,10.00);
+INSERT INTO store VALUES (12,"Bras",100,45,30.00);
+INSERT INTO store VALUES (13,"Headbands",200,120,13.00);
+INSERT INTO store VALUES (14,"Home Decorations",500,130,100.00);
+INSERT INTO store VALUES (15,"Jewlery",200,98,35.00);
 
---> How many items total are in the store, group those by the aisle they are in:
-SELECT SUM(quantity) FROM store GROUP BY aisle;
+--> Order the database by price 
+SELECT * FROM store ORDER BY Price;
 
---> Display the database ordered by price:
-SELECT * FROM store ORDER BY price;
+--> What are the most popular items and their prices?
+SELECT item, price, popularity FROM store ORDER BY Popularity; 
 
--> Select all items from the store that have more than 2 items: 
-SELECT * FROM store WHERE quantity >2;
+--> What are the 5 most popular items and their prices?
+SELECT item, price, popularity FROM store ORDER BY Popularity limit 5;
 
+--> What is the average price of items that have been sold at least 30 times?
+SELECT AVG(price) FROM store where popularity > 30;
